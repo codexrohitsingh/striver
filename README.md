@@ -1,37 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗓 Interactive Wall Calendar Component
 
-## Getting Started
+A polished, interactive React/Next.js calendar component inspired by the aesthetic of a physical wall calendar. This project demonstrates the translation of a static design concept into a highly functional, responsive, and user-friendly web component.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Wall Calendar Aesthetic**: 
+  - Dedicated space for a **Hero Image** that serves as the visual anchor for each month.
+  - Realistic **Spiral Binding Effect** for a physical feel.
+  - Bold typography and angular visual anchors inspired by the reference design.
+  
+- **Realistic "Page-Turning" Animation**:
+  - Implemented smooth, 3D "flipping" transitions using `framer-motion` and CSS 3D transforms. 
+  - The animation simulates a physical page being lifted and turned, with subtle `rotateX`, `rotateY`, and `scale` adjustments.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Day Range Selector**:
+  - Intuitive start and end date selection across the calendar grid.
+  - Clear visual states for the **Start Date**, **End Date**, and **In-Between Days**.
+  - A dedicated selection helper for reviewing and clearing the current range.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Integrated Notes Section**:
+  - **Lined Paper Aesthetic** matching the physical calendar look.
+  - Support for **General Memos** and **Date-Specific Notes**.
+  - **Data Persistence**: Uses `localStorage` to save notes across browser sessions.
+  - Full CRUD functionality (Add, View, Delete).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Fully Responsive Design**:
+  - **Desktop**: Side-by-side layout (Hero Image | Grid & Notes).
+  - **Mobile**: Stacked vertical layout optimized for touch interaction.
 
-## Learn More
+- **Creative Flourishes**:
+  - **Holiday Markers**: Pre-configured holidays with informative tooltips.
+  - **Dynamic Theming**: Each month features a unique high-resolution image.
+  - **Note Indicators**: Visual pulses on dates that have associated notes.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js 16 (App Router)**: Modern React framework for routing and performance.
+- **React 19**: Utilizing the latest React features and hooks.
+- **Tailwind CSS 4**: For utility-first styling and custom 3D animations.
+- **Framer Motion**: Powering the realistic 3D transitions and micro-interactions.
+- **Lucide React**: Clean and consistent iconography.
+- **date-fns**: Robust date manipulation and logic.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+### Prerequisites
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Node.js (Latest LTS version recommended)
+- npm or yarn
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# striver
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd striver/my-app
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📂 Project Structure
+
+- `app/components/Calendar/Calendar.tsx`: The main component containing the calendar logic, state management, and 3D animations.
+- `app/lib/utils.ts`: Utility for merging Tailwind classes.
+- `app/globals.css`: Custom CSS for 3D perspective and scrollbar hiding.
+
+## 💡 Implementation Details
+
+- **Animation Strategy**: Used `AnimatePresence` with custom `variants` to achieve the flipping effect. The `rotateX` and `rotateY` properties are calculated based on the navigation direction (Next/Prev).
+- **Date Logic**: Leveraged `eachDayOfInterval` and `startOfWeek` (with `weekStartsOn: 1` for Monday) to build a consistent 7-column grid that handles month transitions correctly.
+- **State Management**: Managed through React `useState` for range selection, current month tracking, and notes management.
+
+## 📝 Submission Note
+
+This project focuses entirely on frontend engineering. All data (notes, ranges) is persisted client-side for evaluation efficiency.
